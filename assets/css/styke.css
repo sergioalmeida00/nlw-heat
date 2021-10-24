@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --grey: hsla(240, 9%, 89%);
+    --gradient: linear-gradient(180deg, rgba(254, 30, 124, 1) 6%, rgba(250, 164, 48, 1) 96%);
+    --radius: 5px;
+}
+
+html,
+body {
+    background-image: url(../images/background.webp);
+    background-size: 100%;
+    height: 100vh;
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--grey);
+}
+
+img {
+    border-radius: var(--radius);
+}
+
+
+/* FAIXA DO CRACHA? */
+
+.faixa::before {
+    content: '';
+    position: fixed;
+    background: var(--gradient);
+    padding: 6rem 1.8rem;
+    margin-left: -2rem;
+    margin-top: -100px;
+    border-bottom: .5rem solid #202024;
+    border-radius: 0 0 var(--radius) var(--radius);
+    z-index: 10;
+}
+
+main {
+    background: url(../images/badge.png) no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    backdrop-filter: saturate(180%) blur(10px);
+    max-width: 375px;
+    height: 550px;
+    border-radius: var(--radius);
+    box-shadow: 0 0 15px 10px rgb(0 0 0 / 40%);
+    z-index: 1;
+}
+
+.content {
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--grey);
+}
+
+.content__avatar {
+    margin: 6rem auto;
+    position: relative;
+}
+
+.content__avatar .build {
+    position: absolute;
+    top: -15px;
+    z-index: 1;
+}
+
+.content__avatar>img {
+    object-fit: cover;
+    width: 10rem;
+    height: 11.5rem;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.content__avatar h1 {
+    margin-top: 1.5rem;
+}
+
+.content__avatar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 0.25rem;
+}
+
+.content__avatar p {
+    margin-top: 2rem;
+}
+
+.content__avatar ul {
+    list-style: none;
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.content__avatar li {
+    transform: translateY(8%);
+    transition: .5s ease-out;
+}
+
+.content__avatar li:hover {
+    transform: translateY(0);
+}
+
+
+/* RESPONSIBILITY CONTENT */
+
+@media(max-width:1200px) {
+    .faixa {
+        display: none;
+    }
+    main {
+        height: 100%;
+        overflow-y: hidden;
+    }
+}
+
+@keyframes up {
+    from {
+        transform: translateY(0) rotate(960deg);
+    }
+    to {
+        transform: translateY(-1000px);
+    }
+}
