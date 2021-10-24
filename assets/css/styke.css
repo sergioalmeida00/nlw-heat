@@ -135,6 +135,12 @@ main {
     }
 }
 
+@media(max-width:500px) {
+    .content__avatar ul {
+        margin-top: 4rem;
+    }
+}
+
 @keyframes up {
     from {
         transform: translateY(0) rotate(960deg);
